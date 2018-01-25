@@ -2,3 +2,19 @@
     width: 30%;
     margin: 10px 20px;
 }
+
+@media (max-width: 768px){
+    .info-image{
+        width: 50%;
+       
+    }
+}
+@media (max-width:576px){
+    .info-image{
+        width: 90%;
+        margin: 10px 5%;
+      text-align: center;
+
+      float: none !important;
+    }
+}

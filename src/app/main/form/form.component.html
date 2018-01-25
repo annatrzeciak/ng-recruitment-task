@@ -1,34 +1,32 @@
-<div class="col-md-8 offset-md-4 h-100 mx-auto">
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<div class="col-md-8 offset-md-4 h-100 mx-auto form-content">
   <div class="addComment" *ngIf='message==""; else showStatusMessage; '>
-  <h3 class="data-header info-text pb-4">
-    Dodaj nowy komentarz</h3>
-  <form [formGroup]="commentForm">
-    <div class="form-group">
-      <label for="inputEmail">Email</label>
-      <input formControlName='email' type="email" class="form-control" id="inputEmail" placeholder="Wpisz adres email">
-      <p *ngIf="!commentForm.get('email').valid && commentForm.get('email').dirty" class="invalid-form">Pole wymagane. Przykładowy adres to: jan.kowalski@poczta.pl</p>
-    </div>
-    <div class="form-group">
-      <label for="inputName">Imię/Nick</label>
-      <input formControlName='name' type="text" class="form-control" id="inputName" placeholder="Wpisz swoje imię lub nick">
-      <p *ngIf="!commentForm.get('name').valid && commentForm.get('name').dirty" class="invalid-form">Pole wymagane. Minimalna długość imienia to 2 litery.</p>
-    </div>
-    <div class="form-group">
-      <label for="inputComment">Komentarz</label>
-      <textarea formControlName='comment' type="text" class="form-control" id="inputComment" placeholder="Wpisz komentarz">
+    <h3 class="data-header info-text pb-4">
+      Dodaj nowy komentarz</h3>
+    <form [formGroup]="commentForm">
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input formControlName='email' type="email" class="form-control" id="inputEmail" placeholder="Wpisz adres email">
+        <p *ngIf="!commentForm.get('email').valid && commentForm.get('email').dirty" class="invalid-form">Pole wymagane. Przykładowy adres to: jan.kowalski@poczta.pl</p>
+      </div>
+      <div class="form-group">
+        <label for="inputName">Imię/Nick</label>
+        <input formControlName='name' type="text" class="form-control" id="inputName" placeholder="Wpisz swoje imię lub nick">
+        <p *ngIf="!commentForm.get('name').valid && commentForm.get('name').dirty" class="invalid-form">Pole wymagane. Minimalna długość imienia to 2 litery.</p>
+      </div>
+      <div class="form-group">
+        <label for="inputComment">Komentarz</label>
+        <textarea formControlName='comment' type="text" class="form-control" id="inputComment" placeholder="Wpisz komentarz">
       </textarea>
-      <p *ngIf="!commentForm.get('comment').valid && commentForm.get('comment').dirty" class="invalid-form">To pole nie może być puste. Wpisz komentarz.</p>
-
-    </div>
-    <button [disabled]="commentForm.invalid" (click)="addComment()" type="submit" class="btn btn-primary float-right">Dodaj komentarz</button>
-
-  </form>
+        <p *ngIf="!commentForm.get('comment').valid && commentForm.get('comment').dirty" class="invalid-form">To pole nie może być puste. Wpisz komentarz.</p>
+      </div>
+      <button [disabled]="commentForm.invalid" (click)="addComment()" type="submit" class="add-button btn btn-primary float-right">Dodaj komentarz</button>
+    </form>
   </div>
   <ng-template #showStatusMessage>
-  <div class="showMessage"  *ngIf='isError==true; else showOkStatus' showErrorInfo>{{message}}</div>
-  <ng-template #showOkStatus>
-  <div class="showMessage" showOKInfo>{{message}}</div>
+    <div class="showMessage col-md-12" *ngIf='isError==true; else showOkStatus' showErrorInfo>{{message}}</div>
+    <ng-template #showOkStatus>
+      <div class="showMessage col-md-12" showOKInfo>{{message}}</div>
+    </ng-template>
   </ng-template>
-</ng-template>
-
 </div>

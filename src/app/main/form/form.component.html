@@ -1,8 +1,8 @@
 <app-spinner *ngIf="showSpinner"></app-spinner>
 <div class="col-md-8 offset-md-4 h-100 mx-auto form-content">
   <div class="addComment" *ngIf='message==""; else showStatusMessage; '>
-    <h3 class="data-header info-text pb-4">
-      Dodaj nowy komentarz</h3>
+    <h4 class="data-header info-text pb-3">
+      Dodaj nowy komentarz</h4>
     <form [formGroup]="commentForm">
       <div class="form-group">
         <label for="inputEmail">Email</label>

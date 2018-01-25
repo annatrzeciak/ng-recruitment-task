@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
 
   comment: Comment;
   commentForm: FormGroup;
-  private message: any = '';
+  message: any = '';
   private isError: boolean;
   showSpinner: boolean = true;
 

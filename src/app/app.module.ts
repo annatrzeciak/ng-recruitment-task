@@ -6,6 +6,7 @@ import { MainModule } from './main/main.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MainService } from './main/main.service';
 import { HttpModule } from '@angular/http';
+import { SharedModuleModule } from './shared-module/shared-module.module';
 
 
 @NgModule({

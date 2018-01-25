@@ -1,4 +1,5 @@
-<div class="col-md-8 offset-md-4 mx-auto">
+<div class="col-md-8 offset-md-4 h-100 mx-auto">
+  <div class="addComment" *ngIf='message==""; else showStatusMessage; '>
   <h3 class="data-header info-text pb-4">
     Dodaj nowy komentarz</h3>
   <form [formGroup]="commentForm">
@@ -22,4 +23,12 @@
     <button [disabled]="commentForm.invalid" (click)="addComment()" type="submit" class="btn btn-primary float-right">Dodaj komentarz</button>
 
   </form>
+  </div>
+  <ng-template #showStatusMessage>
+  <div class="showMessage"  *ngIf='isError==true; else showOkStatus' showErrorInfo>{{message}}</div>
+  <ng-template #showOkStatus>
+  <div class="showMessage" showOKInfo>{{message}}</div>
+  </ng-template>
+</ng-template>
+
 </div>
